@@ -8,3 +8,6 @@ _All "loot_tables" are from current version of minecraft_
 - Download the lastest version of golang
 - Run `go get -u github.com/toyz/mc_randomizer`
 - Profit!!! 
+
+## TODO
+- Add auto CI or binaries for all operating systems
