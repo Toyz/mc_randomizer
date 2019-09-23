@@ -27,7 +27,7 @@ func main() {
 
 	fileList := make([]string, 0)
 	remaining := make([]string, 0)
-	suffed := make(map[string]string,)
+	shuffled := make(map[string]string,)
 
 	_ = filepath.Walk("loot_tables", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -44,13 +44,13 @@ func main() {
 
 	for _, file := range fileList {
 		i := r.Intn(len(remaining))
-		suffed[file] = remaining[i]
-		log.Printf("Suffled: %s:%s", file, suffed[file])
+		shuffled[file] = remaining[i]
+		log.Printf("Suffled: %s:%s", file, shuffled[file])
 		remaining = remove(remaining, i)
 	}
 
-	createDataPack(fmt.Sprintf("%s_%d.zip", *datapack_name, *datapack_seed), suffed)
-	log.Printf("Wrote Datapatch: %s_%d.zip", *datapack_name, *datapack_seed)
+	createDataPack(fmt.Sprintf("%s_%d.zip", *datapack_name, *datapack_seed), shuffled)
+	log.Printf("Wrote Datapack: %s_%d.zip", *datapack_name, *datapack_seed)
 }
 
 func remove(slice []string, s int) []string {
