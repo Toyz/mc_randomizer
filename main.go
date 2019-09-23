@@ -21,8 +21,6 @@ var (
 
 func main() {
 	kingpin.Parse()
-
-	// TODO: Make this user controlled
 	r := rand.New(rand.NewSource(*datapack_seed))
 
 	fileList := make([]string, 0)
